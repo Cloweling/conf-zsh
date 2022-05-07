@@ -24,10 +24,6 @@ function git_develop_branch() {
   echo develop
 }
 
-function current_branch() {
-  git_current_branch
-}
-
 alias g='git'
 
 alias ga='git add'
