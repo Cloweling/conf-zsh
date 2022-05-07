@@ -1,10 +1,9 @@
 #! /bin/sh
-
-NAME_DIRECTORY_FILE="test-conf-zsh"
+NAME_DIRECTORY_FILE="zsh"
 ROOT_PATH=~/.$NAME_DIRECTORY_FILE
 
 # Delete old directory
-[ -d $ROOT_PATH ] && rm -rf $ROOT_PATH
+[ -d .$ROOT_PATH ] && rm -rf .$ROOT_PATH
 
 # Delete old file zshrc
 [ -f ~/.zshrc ] && rm ~/.zshrc
