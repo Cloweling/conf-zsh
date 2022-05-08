@@ -9,11 +9,15 @@ ROOT_PATH=~/.$NAME_DIRECTORY_FILE
 [ -f ~/.zshrc ] && rm ~/.zshrc
 
 # Delete old file enviroment
-[ - f ~/.zshenv ] && rm ~/.zshenv
+[ -f ~/.zshenv ] && rm ~/.zshenv
 
 # Install repository
+cd /tmp
+wget -q --show-progress https://github.com/Cloweling/conf-zsh/archive/refs/heads/main.zip -O zsh_tmp.zip
+unzip -q zsh_tmp.zip
+mv conf-zsh-main $ROOT_PATH
+rm zsh_tmp.zip
 cd ~
-git clone https://github.com/Cloweling/conf-zsh.git .$NAME_DIRECTORY_FILE
 
 # Install plugins
 cd $ROOT_PATH
@@ -24,5 +28,5 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git plugins/zsh-autos
 git clone https://github.com/zsh-users/zsh-history-substring-search.git plugins/zsh-history-substring-search
 
 # install zshrc
-cp zshrc ~/.zshrc
-cp zshenv ~/.zshenv
+mv zshrc ~/.zshrc
+mv zshenv ~/.zshenv
