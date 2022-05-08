@@ -1,10 +1,7 @@
-# Init Tmux
-if command -v tmux>/dev/null; then
-    [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && tmux new-session
-    tmux rename-window -t 1 Terminal
-fi
+eval "$(starship init zsh)"\
 
-eval "$(starship init zsh)"
+# Name Terminal
+tmux rename-window -t 1 Terminal
 
 autoload -Uz compinit && compinit -i # Load and initialize the completion system ignoring insecure directories.
 _comp_options+=(globdots) # With hidden files
