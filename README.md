@@ -34,7 +34,7 @@ https://sdkman.io/
 
 Install NVim 
 ```
-sudo apt install python3-pynvim
+sudo snap install nvim --edge
 ```
 
 Install RVM (Ruby Version Manager)
