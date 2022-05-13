@@ -25,8 +25,8 @@ echo "Done!"
 # Install plugins
 echo "Installing plugins..."
 cd $ROOT_PATH
-git clone -q git@github.com:marlonrichert/zcolors.git plugins/zcolors
-git clone -q git@github.com:Aloxaf/fzf-tab.git plugins/fzf-tab
+git clone -q https://github.com/marlonrichert/zcolors.git plugins/zcolors
+git clone -q https://github.com/Aloxaf/fzf-tab.git plugins/fzf-tab
 git clone -q https://github.com/zsh-users/zsh-syntax-highlighting.git plugins/zsh-syntax-highlighting
 git clone -q https://github.com/zsh-users/zsh-autosuggestions.git plugins/zsh-autosuggestions
 git clone -q https://github.com/zsh-users/zsh-history-substring-search.git plugins/zsh-history-substring-search
