@@ -36,4 +36,5 @@ echo "Done!"
 echo "Installing file zsh..."
 mv zshrc ~/.zshrc
 mv zshenv ~/.zshenv
+rm install.sh README.md
 echo "Done!"
