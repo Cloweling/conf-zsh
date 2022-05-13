@@ -80,3 +80,12 @@ bindkey '^[[3~' delete-char
 bindkey '^[3;5~' delete-char
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
+
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey "$terminfo[cuu1]" history-substring-search-up
+bindkey "$terminfo[cud1]" history-substring-search-down
