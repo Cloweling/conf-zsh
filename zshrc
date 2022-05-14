@@ -9,6 +9,9 @@ _comp_options+=(globdots) # With hidden files
 # Emacs mode
 bindkey -e
 
+# Autocomplete Tmuxp
+eval "$(_TMUXP_COMPLETE=zsh_source tmuxp)"
+
 # Options
 setopt ALWAYS_TO_END # move cursor to end if word had one match
 setopt PATH_DIRS # Perform path search even on command names with slashes.
