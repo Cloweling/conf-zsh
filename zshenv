@@ -33,5 +33,9 @@ export SAVEHIST=2000
 # Load file colors
 export LS_COLORS="$(vivid generate snazzy)"
 
-# Load Suggestion 
+# Load color Suggestion 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#969696"
+
+# Load color History Substring Search
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=black,fg=white,bold" 
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=black,fg=red,bold"
