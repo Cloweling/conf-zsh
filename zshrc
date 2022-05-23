@@ -39,6 +39,7 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 
 
 ## File loads
+[ -s "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 

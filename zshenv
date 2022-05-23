@@ -18,7 +18,6 @@ GEM_PATH=~/.rvm/gems/default/bin
 # Editor/Browser
 VISUAL="nvim"
 EDITOR="nvim"
-BROWSER=/usr/bin/google-chrome-stable
 
 # XDG Base directory 
 XDG_CONFIG_HOME="$HOME/.config"
