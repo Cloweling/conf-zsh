@@ -39,11 +39,12 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 
 
 ## File loads
-[ -s "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+[ -s "$HOME/.alias.local" ] && source "$HOME/.alias.local"
+[ -s "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
+[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # RVM fixes whatever it considers the problem to be, on its own, in `rvm use`.
 # It also prints some junk we don't care about, so we squelch its output in the same way.
