@@ -22,14 +22,6 @@ tmk() {
     done
 }
 
-npm() {
-  if [ -e yarn.lock ]; then
-    echo "⚠️ This is a yarn project. Why don't you use it ⁉️"
-  else
-    command npm $@
-  fi
-}
-
 function dull() {
     du -h -x -- $1 | sort -r -h | head -20;
 }
