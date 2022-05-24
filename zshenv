@@ -16,8 +16,8 @@ GEM_HOME=~/.rvm/gems/default/bin
 GEM_PATH=~/.rvm/gems/default/bin
 
 # Editor/Browser
-VISUAL="nvim"
-EDITOR="nvim"
+VISUAL=/snap/bin/nvim
+EDITOR=/snap/bin/nvim
 
 # XDG Base directory 
 XDG_CONFIG_HOME="$HOME/.config"
