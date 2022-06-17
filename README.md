@@ -22,9 +22,9 @@ Unzip and move /usr/share/fonts/<name font>
 Run command sudo fc-cache -f -v
 ```
 
-Install NVM (Node Version Manager)
+Install FNM (Fast Node Manager)
 ```
-https://github.com/nvm-sh/nvm
+https://github.com/Schniz/fnm
 ```
 
 Install SDKMan
