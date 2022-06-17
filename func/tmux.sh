@@ -1,4 +1,3 @@
-# Tmux
 # Search Session
 tmf() {
   [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
@@ -20,19 +19,4 @@ tmk() {
             tmux kill-session -t "$match[1]"
         }
     done
-}
-
-function dull() {
-    du -h -x -- $1 | sort -r -h | head -20;
-}
-
-
-function gbll() { 
-  git branch \
-    --all \
-    --color="always" \
-    --sort=authordate \
-    --format="%(color:green)%(authordate:relative);%(color:red)%(authorname);%(color:white)%(color:bold)%(refname:short)" \
-    "$@" \
-    | column -s ";" -t 
 }

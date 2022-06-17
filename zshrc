@@ -1,15 +1,18 @@
-eval "$(starship init zsh)"\
+eval "$(starship init zsh)"
 
-# Name Terminal
+# name Terminal
 tmux rename-window -t 1 Terminal
 
 autoload -Uz compinit && compinit -i # Load and initialize the completion system ignoring insecure directories.
 _comp_options+=(globdots) # With hidden files
 
-# Emacs mode
+# emacs mode
 bindkey -e
 
-# Autocomplete Tmuxp
+# fnm
+eval "$(fnm env $ZSH_FNM_ENV_EXTRA_ARGS)"
+
+# autocomplete tmuxp
 eval "$(_TMUXP_COMPLETE=zsh_source tmuxp)"
 
 # Options
@@ -37,43 +40,33 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
-
-## File loads
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
-[ -s "$HOME/.alias.local" ] && source "$HOME/.alias.local"
-[ -s "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
-[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# RVM fixes whatever it considers the problem to be, on its own, in `rvm use`.
-# It also prints some junk we don't care about, so we squelch its output in the same way.
-rvm use default > /dev/null 2>&1
-
 ## Hooks
 autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
+fnm_autoload_hook () {
+    node_config_path="$PWD"
+    while [[ "$node_config_path" != "" && ! -f "$node_config_path/.nvmrc" && ! -f "$node_config_path/.node-version" ]]; do
+        node_config_path=${node_config_path%/*}
+    done
 
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
+    node_current_alias="$(fnm current)"
+    if [[ "$node_config_path" != "" ]]; then
+        fnm_use_output="$(builtin cd -q "$node_config_path" && exec fnm use 2>&1)"
+    else
+        fnm_use_output="$(fnm use default 2>&1)"
     fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
+    node_updated_alias="$(fnm current)"
+    if [[ "$node_current_alias" != "$node_updated_alias" ]]; then
+        echo "$fnm_use_output"
+    fi
 }
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+add-zsh-hook chpwd fnm_autoload_hook 
+fnm_autoload_hook
+rehash
 
 ## functions
-source ~/.zsh/functions
+source ~/.zsh/func/common.sh
+source ~/.zsh/func/git.sh
+source ~/.zsh/func/tmux.sh
 
 ## Alias
 source ~/.zsh/alias/general.zsh

@@ -1,19 +1,20 @@
-# Node version manager
-export NVM_DIR="$HOME/.nvm"
+# Load Opcional
+[ -s "$HOME/.alias.local" ] && source "$HOME/.alias.local"
+[ -s "$HOME/.zshenv.local" ] && source "$HOME/.zshenv.local"
+[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
+[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# fnm
+export PATH=/home/cloweling/.fnm:$PATH
 
 # Local bin 
-export PATH="$PATH:/home/cloweling/.local/bin"
+export PATH=$PATH:/home/cloweling/.local/bin
 
 # SDKman
-export SDKMAN_DIR="/home/cloweling/.sdkman"
+export SDKMAN_DIR=/home/cloweling/.sdkman
 
 # NPM
 export PATH=~/.npm-global/bin:$PATH
-
-# RVM
-export PATH="$PATH:$HOME/.rvm/bin"
-export GEM_HOME=~/.rvm/gems/default/bin
-export GEM_PATH=~/.rvm/gems/default/bin
 
 # Editor/Browser
 export VISUAL=/snap/bin/nvim
@@ -21,13 +22,13 @@ export EDITOR=/snap/bin/nvim
 export BROWSER=/usr/bin/google-chrome-stable
 
 # XDG Base directory 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CACHE_HOME=$HOME/.cache
 
 # zsh
 export DISABLE_AUTO_TITLE='true'
-export HISTFILE="$HOME/.zsh_history"    
+export HISTFILE=$HOME/.zsh_history    
 export HISTSIZE=2000                      
 export SAVEHIST=2000                      
 
