@@ -10,7 +10,7 @@ _comp_options+=(globdots) # With hidden files
 bindkey -e
 
 # fnm
-eval "$(fnm env $ZSH_FNM_ENV_EXTRA_ARGS)"
+eval "$(fnm env --use-on-cd)"
 
 # autocomplete tmuxp
 eval "$(_TMUXP_COMPLETE=zsh_source tmuxp)"
