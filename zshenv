@@ -11,7 +11,7 @@ export PATH=$PATH:~/.fnm
 export PATH=$PATH:~/.local/bin
 
 # Cargo
-export PATH=$PATH:~.cargo/bin
+export PATH=$PATH:~/.cargo/bin
 
 # SDKman
 export SDKMAN_DIR=~/.sdkman
