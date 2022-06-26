@@ -5,13 +5,16 @@
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # fnm
-export PATH=/home/cloweling/.fnm:$PATH
+export PATH=$PATH:~/.fnm
 
 # Local bin 
-export PATH=$PATH:/home/cloweling/.local/bin
+export PATH=$PATH:~/.local/bin
+
+# Cargo
+export PATH=$PATH:~.cargo/bin
 
 # SDKman
-export SDKMAN_DIR=/home/cloweling/.sdkman
+export SDKMAN_DIR=~/.sdkman
 
 # NPM
 export PATH=~/.npm-global/bin:$PATH
