@@ -1,8 +1,5 @@
 eval "$(starship init zsh)"
 
-# name Terminal
-tmux rename-window -t 1 Terminal
-
 autoload -Uz compinit && compinit -i # Load and initialize the completion system ignoring insecure directories.
 _comp_options+=(globdots) # With hidden files
 
