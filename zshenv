@@ -5,7 +5,7 @@
 [ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # fnm
-export PATH=$PATH:~/.fnm
+export PATH=$PATH:~/.local/share/fnm
 
 # Local bin 
 export PATH=$PATH:~/.local/bin
