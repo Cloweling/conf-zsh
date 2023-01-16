@@ -6,8 +6,6 @@ alias lsa='ls -lah'
 
 alias c='clear'
 
-alias apt='nala'
-
 alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
