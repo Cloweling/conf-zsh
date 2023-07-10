@@ -9,9 +9,6 @@ bindkey -e
 # fnm
 eval "$(fnm env --use-on-cd)"
 
-# autocomplete tmuxp
-eval "$(_TMUXP_COMPLETE=zsh_source tmuxp)"
-
 # Options
 setopt ALWAYS_TO_END # move cursor to end if word had one match
 setopt PATH_DIRS # Perform path search even on command names with slashes.
