@@ -56,7 +56,7 @@ fnm_autoload_hook () {
         echo "$fnm_use_output"
     fi
 }
-add-zsh-hook chpwd fnm_autoload_hook 
+add-zsh-hook chpwd fnm_autoload_hook
 fnm_autoload_hook
 rehash
 
@@ -69,8 +69,9 @@ source ~/.zsh/func/tmux.sh
 source ~/.zsh/alias/general.zsh
 source ~/.zsh/alias/directory.zsh
 source ~/.zsh/alias/git.zsh
+source ~/.zsh/alias/apt.zsh
 
-# Keyword 
+# Keyword
 bindkey '^[[3~' delete-char
 bindkey '^[3;5~' delete-char
 bindkey '^[[A' history-substring-search-up
