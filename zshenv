@@ -20,8 +20,8 @@ export SDKMAN_DIR=~/.sdkman
 export PATH=~/.npm-global/bin:$PATH
 
 # Editor/Browser
-export VISUAL=/snap/bin/nvim
-export EDITOR=/snap/bin/nvim
+export VISUAL=nvim
+export EDITOR=nvim
 export BROWSER=/usr/bin/google-chrome-stable
 
 # XDG Base directory 
