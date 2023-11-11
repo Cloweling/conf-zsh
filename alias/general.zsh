@@ -15,5 +15,9 @@ alias ln='ln -i'
 
 alias df='df -Th --total | sort -h -r | column -t'
 
+alias ip='ip --color=auto'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+
 alias sysll="systemctl list-unit-files"
 alias syslls="systemctl list-unit-files --type=service"

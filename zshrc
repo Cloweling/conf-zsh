@@ -28,11 +28,28 @@ source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-zstyle ':completion:*:git-checkout:*' sort false
-zstyle ':completion:*:descriptions' format '[%d]'
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':fzf-tab:*' popup-pad 120 0
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 zstyle ':fzf-tab:*' switch-group ',' '.'
+
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -l --color=always $realpath'
+zstyle ':fzf-tab:complete:ls:*' fzf-preview 'exa -l --color=always $realpath'
+zstyle ':fzf-tab:complete:ll:*' fzf-preview 'exa -l --color=always $realpath'
+
+zstyle ':fzf-tab:complete:systemctl-(status|(re|)start|(dis|en)able):*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+zstyle ':fzf-tab:complete:systemctl-show:*' fzf-preview 'systemctl show $word | bat --color=always -plini'
+zstyle ':fzf-tab:complete:git-switch:*' fzf-preview 'git log --pretty=format:"%C(auto)%s (%C(bold blue)%an%C(reset))" $word'
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'echo ${(P)word}'
+ zstyle ':fzf-tab:complete:-command-:*' fzf-preview \
+  '(out=$(tldr --color always "$word") 2>/dev/null && echo $out) || (out=$(MANWIDTH=$FZF_PREVIEW_COLUMNS man "$word") 2>/dev/null && echo $out) || (out=$(which "$word") && echo $out) || echo "${(P)word}"'
+
+# give a preview of commandline arguments when completing `kill`
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
+zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
+zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=down:3:wrap
 
 ## Hooks
 autoload -U add-zsh-hook
@@ -66,7 +83,6 @@ source ~/.zsh/func/tmux.sh
 source ~/.zsh/alias/general.zsh
 source ~/.zsh/alias/directory.zsh
 source ~/.zsh/alias/git.zsh
-source ~/.zsh/alias/apt.zsh
 
 # Keyword
 bindkey '^[[3~' delete-char
